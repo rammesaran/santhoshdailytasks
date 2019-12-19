@@ -18,6 +18,9 @@ class _MyAppState extends State<MyApp> {
     'Goat',
     'elephat',
     'mouse',
+    'Maruthi',
+    'Swift',
+    "Dzire"
   ];
   @override
   Widget build(BuildContext context) {
