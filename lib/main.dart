@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:santhoshtasks/pageone.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var list = [
+  List list = [
     'cat',
     'dog',
     'bulb',
@@ -36,9 +37,15 @@ class _MyAppState extends State<MyApp> {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(list[index]),
-                  leading: Icon(Icons.person),
-                );
+                    title: Text(list[index]),
+                    leading: Icon(Icons.person),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  FirstPage(second: list[index].toString())));
+                    });
               },
               itemCount: list.length,
             ),
