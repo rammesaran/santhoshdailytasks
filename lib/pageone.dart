@@ -1,55 +1,26 @@
 import 'package:flutter/material.dart';
 
-class Players extends StatefulWidget {
+class PlayerList extends StatelessWidget {
   final String name;
   final String images;
-  final String ranks;
+  final int rank;
   final String nation;
-  final String odi;
-  final String test;
-  final String summer;
-  Players(
+  final int matchodi;
+  final int matchtest;
+  final String summery;
+  PlayerList(
       {this.name,
       this.images,
-      this.ranks,
+      this.matchodi,
+      this.matchtest,
       this.nation,
-      this.odi,
-      this.summer,
-      this.test});
-  @override
-  _PlayersState createState() => _PlayersState(
-      playersname: name,
-      playersimage: images,
-      playersrank: ranks,
-      playernation: nation,
-      playerodi: odi,
-      playersummer: summer,
-      playertest: test);
-}
-
-class _PlayersState extends State<Players> {
-  String playersname;
-  String playersimage;
-  String playersrank;
-  String playernation;
-  String playerodi;
-  String playertest;
-  String playersummer;
-
-  _PlayersState(
-      {this.playersimage,
-      this.playersname,
-      this.playersrank,
-      this.playernation,
-      this.playerodi,
-      this.playersummer,
-      this.playertest});
-
+      this.rank,
+      this.summery});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(playersname),
+        title: Text(name),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
@@ -62,30 +33,30 @@ class _PlayersState extends State<Players> {
               padding: EdgeInsets.all(10.0),
             ),
             Image(
-              image: NetworkImage(playersimage),
+              image: NetworkImage(images),
             ),
             Text(
-              playersname,
+              name,
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              playersrank,
+              rank.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              playernation,
+              nation,
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              playerodi,
+              matchodi.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              playertest,
+              matchtest.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              playersummer,
+              summery,
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
           ],

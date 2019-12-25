@@ -10,23 +10,44 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<PlayerMode> playermode = List<PlayerMode>();
-  final List<String> players = ["Sachin", "Dravid", "Dhoni", "Raina"];
-  final List<String> images = [
-    "https://c.ndtvimg.com/2019-07/u16tdj8s_sachin-tendulkar-icc-twitter_625x300_19_July_19.jpg?output-quality=70&output-format=webp&downsize=555:*",
-    "https://s.ndtvimg.com/images/entities/120/rahul-dravid-174.jpg",
-    "https://img.etimg.com/thumb/msid-61166425,width-300,imgsize-126503,resizemode-4/why-after-13-years-mahendra-singh-dhoni-is-still-not-out.jpg",
-    "https://www.mykhel.com/img/2018/10/raina-1538638720.jpg"
-  ];
-  final List<int> ranks = [1, 2, 3, 4];
-  final List<String> nations = ['india', 'india', 'india', 'india'];
-  final List<int> odis = [10330, 2323, 6565, 9898];
-  final List<int> tests = [989, 4545, 1212, 2121];
-  final List<String> matchsummerys = [
-    'hai i am sachin',
-    'hai i am dravid',
-    'hai i am dhoni',
-    'hai i am raina'
+  final List<PlayerMode> players = [
+    PlayerMode(
+      name: "sachin",
+      image:
+          "https://c.ndtvimg.com/2019-07/u16tdj8s_sachin-tendulkar-icc-twitter_625x300_19_July_19.jpg?output-quality=70&output-format=webp&downsize=555:*",
+      rank: 1,
+      nation: "india",
+      matchodi: 25,
+      matchtest: 50,
+      summery: "hai this is sachin",
+    ),
+    PlayerMode(
+      name: "dravid",
+      image: "https://s.ndtvimg.com/images/entities/120/rahul-dravid-174.jpg",
+      rank: 2,
+      nation: "india",
+      matchodi: 50,
+      matchtest: 100,
+      summery: "hai this is dravid",
+    ),
+    PlayerMode(
+      name: "dhoni",
+      image:
+          "https://img.etimg.com/thumb/msid-61166425,width-300,imgsize-126503,resizemode-4/why-after-13-years-mahendra-singh-dhoni-is-still-not-out.jpg",
+      rank: 3,
+      nation: "india",
+      matchodi: 100,
+      matchtest: 100,
+      summery: "hai this is dhoni",
+    ),
+    PlayerMode(
+        name: "raina",
+        image: "https://www.mykhel.com/img/2018/10/raina-1538638720.jpg",
+        rank: 4,
+        nation: "india",
+        matchodi: 65,
+        matchtest: 100,
+        summery: "hai this is raina"),
   ];
 
   //PlayerMode playerMode = PlayerMode();
@@ -64,21 +85,22 @@ class _MyAppState extends State<MyApp> {
                             ),
                           ),
                         ),
-                        title: Text(players[index]),
+                        title: Text(players[index].name),
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Players(
-                                  name: players[index].toString(),
-                                  images: images[index].toString(),
-                                  ranks: ranks[index].toString(),
-                                  nation: nations[index].toString(),
-                                  odi: odis[index].toString(),
-                                  test: tests[index].toString(),
-                                  summer: matchsummerys[index].toString(),
-                                ),
-                              ));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PlayerList(
+                                name: players[index].name,
+                                images: players[index].image,
+                                matchodi: players[index].matchodi,
+                                matchtest: players[index].matchtest,
+                                nation: players[index].nation,
+                                rank: players[index].rank,
+                                summery: players[index].summery,
+                              ),
+                            ),
+                          );
                         }),
                   );
                 },
