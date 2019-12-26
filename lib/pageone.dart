@@ -1,26 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:santhoshtasks/model/playermodel.dart';
 
 class PlayerList extends StatelessWidget {
-  final String name;
-  final String images;
-  final int rank;
-  final String nation;
-  final int matchodi;
-  final int matchtest;
-  final String summery;
-  PlayerList(
-      {this.name,
-      this.images,
-      this.matchodi,
-      this.matchtest,
-      this.nation,
-      this.rank,
-      this.summery});
+  final PlayerMode playerlist;
+  PlayerList({this.playerlist});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        title: Text(playerlist.name.toString()),
       ),
       body: Container(
         padding: EdgeInsets.all(20.0),
@@ -33,30 +22,30 @@ class PlayerList extends StatelessWidget {
               padding: EdgeInsets.all(10.0),
             ),
             Image(
-              image: NetworkImage(images),
+              image: NetworkImage(playerlist.image),
             ),
             Text(
-              name,
+              playerlist.name.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              rank.toString(),
+              playerlist.rank.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              nation,
+              playerlist.nation,
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              matchodi.toString(),
+              playerlist.matchodi.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              matchtest.toString(),
+              playerlist.matchtest.toString(),
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              summery,
+              playerlist.summery,
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
           ],

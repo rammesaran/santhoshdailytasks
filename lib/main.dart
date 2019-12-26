@@ -90,15 +90,8 @@ class _MyAppState extends State<MyApp> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => PlayerList(
-                                name: players[index].name,
-                                images: players[index].image,
-                                matchodi: players[index].matchodi,
-                                matchtest: players[index].matchtest,
-                                nation: players[index].nation,
-                                rank: players[index].rank,
-                                summery: players[index].summery,
-                              ),
+                              builder: (context) =>
+                                  PlayerList(playerlist: players[index]),
                             ),
                           );
                         }),
